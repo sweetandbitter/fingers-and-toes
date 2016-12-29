@@ -11,11 +11,13 @@ restart.addEventListener("click", restartTimer);
 reset.addEventListener("click", resetTimer);
 
 function startTimer(){
+	displayNum.innerHTML = 0;
 	var timeStop = parseInt(document.getElementById("num").value);
 	timeCount(timeStop);
 }
 
 function restartTimer(){
+	displayNum.innerHTML = 0;
 	var timeStop = parseInt(document.getElementById("num").value);
 	timeCount(timeStop);
 }
@@ -26,11 +28,10 @@ function resetTimer(){
 	displayNum.innerHTML = 0;
 	figure.style.color = "black";
 	toe.style.color = "black";
-	timeNow = 0;
+	start.disabled = false;
 }
 
 function clearAllIntervals() {
-    // Make sure to clear out all old intervals to restart or start again
     for (var i = 1; i < 99999; i++) {
         clearInterval(i);
     }
@@ -39,13 +40,14 @@ function clearAllIntervals() {
 function timeCount(timeStop){
 	clearAllIntervals();
 	var timeNow = 0;
+	start.disabled = true;
  	var timer = setInterval(count, 1000);
  	function count(){
  		timeNow++;
  		console.log(timeNow, timeStop)
  		if(timeNow > timeStop){
  			clearInterval(timer);
- 			timeNow = 0;
+ 			start.disabled = false;
  		} else {
  			if(timeNow % 3 === 0  && timeNow %5 === 0){
 	 			figure.style.color = "red";

@@ -5,29 +5,28 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div>
-		<h1>Welcome to game Figures and Toes</h1>
+	<div class="title">
+		Welcome to game Figures and Toes
 	</div>
-	<div id="game-start">
-		<div>Please input the number you would like to count</div>
+	<div class="sectionbox">
+		<div class="text">Please input the number you would like to count:</div>
 		<div>
 			<input type="number" id="num" placeholder="0">
 		</div>
+		<div class="button">
+			<button id="start-btn">Start</button>
+			<button id="restart-btn">Restart</button>
+			<button id="reset-btn">Reset</button>
+		</div>
 	</div>
-	<div class="button">
-		<button id="start-btn">Start</button>
-		<button id="restart-btn">Restart</button>
-		<button id="reset-btn">Reset</button>
-	</div>
-	<div class="display">
-		<div>
-			<h2 id="display-number">0</h2>
+	
+	<div class="sectionbox">
+		<div class="number-count">Number counts to <span id="display-number">0</span></div>
+		<div class="word">
+			<div id="figure">Figures</div>
 		</div>
 		<div class="word">
-			<h2 id="figure">Figures</h2>
-		</div>
-		<div class="word">
-			<h2 id="toe">Toes</h2>
+			<div id="toe">Toes</div>
 		</div>
 	</div>
 	<script src="js/script.js"></script>

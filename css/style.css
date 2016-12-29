@@ -1,9 +1,54 @@
-body {
-	margin:auto;
-	width: 500px;
-	padding: 30px;
+.title {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
 }
 
-.highlite{
+.sectionbox {
+	margin-top: 50px;
+    width: 45%;
+	float: left;
+	padding-left: 5%;
+}
+
+.highlite {
 	color: red;
+}
+
+.text {
+	font-size: 25px;
+	margin-bottom: 40px;
+}
+
+#num{
+	height: 20px;
+}
+
+.button {
+	margin-top: 50px;
+}
+
+.button button{
+	width: 100px;
+	height: 40px;
+}
+
+.number-count {
+	font-size: 30px;
+}
+
+.word{
+	display: inline-block;
+	margin-right: 30px;
+	margin-top: 40px;
+	font-size: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .sectionbox {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+    
 }
