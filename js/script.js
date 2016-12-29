@@ -1,4 +1,4 @@
-var figure = document.getElementById("figure");
+var finger = document.getElementById("finger");
 var toe = document.getElementById("toe")
 var start = document.getElementById("start-btn");
 var restart = document.getElementById("restart-btn");
@@ -12,13 +12,19 @@ reset.addEventListener("click", resetTimer);
 
 function startTimer(){
 	displayNum.innerHTML = 0;
-	var timeStop = parseInt(document.getElementById("num").value);
+	var timeStop = Number(document.getElementById("num").value);
+	if(!isValidate(timeStop)){
+		return;
+	}
 	timeCount(timeStop);
 }
 
 function restartTimer(){
 	displayNum.innerHTML = 0;
 	var timeStop = parseInt(document.getElementById("num").value);
+	if(!isValidate(timeStop)){
+		return;
+	}
 	timeCount(timeStop);
 }
 
@@ -26,7 +32,7 @@ function resetTimer(){
 	clearAllIntervals();
 	document.getElementById("num").value = 0;
 	displayNum.innerHTML = 0;
-	figure.style.color = "black";
+	finger.style.color = "black";
 	toe.style.color = "black";
 	start.disabled = false;
 }
@@ -41,6 +47,8 @@ function timeCount(timeStop){
 	clearAllIntervals();
 	var timeNow = 0;
 	start.disabled = true;
+	finger.style.color = "red";
+	toe.style.color = "red";
  	var timer = setInterval(count, 1000);
  	function count(){
  		timeNow++;
@@ -50,16 +58,16 @@ function timeCount(timeStop){
  			start.disabled = false;
  		} else {
  			if(timeNow % 3 === 0  && timeNow %5 === 0){
-	 			figure.style.color = "red";
+	 			finger.style.color = "red";
 	 			toe.style.color = "red";
 	 		} else if (timeNow % 3 === 0){
-	 			figure.style.color = "red";
+	 			finger.style.color = "red";
 	 			toe.style.color = "black";
 	 		} else if(timeNow % 5 === 0){
-	 			figure.style.color = "black";
+	 			finger.style.color = "black";
 	 			toe.style.color = "red";
 	 		} else {
-	 			figure.style.color = "black";
+	 			finger.style.color = "black";
 	 			toe.style.color = "black";
 	 		}
 	 		displayNum.innerHTML = timeNow;
@@ -68,3 +76,18 @@ function timeCount(timeStop){
  	}
 }
 
+function isValidate(num){
+	if (num === ""){
+		alert("input can not be empty");
+		return false;
+	}
+	if (!Number.isInteger(num)){
+		alert("Input is not a Integer");
+		return false;
+	}
+	if(num < 0){
+		alert("Input should be a non-negative integer.");
+		return false;
+	}
+	return true;
+}
